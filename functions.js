@@ -1,22 +1,44 @@
 $(function(){
 
    $document = $(document);
-   var imgBack = document.getElementById("back");
+   $contextWidth = $document.width();
+   $contextHeight = $document.height();
+
    var imgFront =  document.getElementById("front");
-   $speedBack = imgBack.dataset.speed;
+   var pipa =  document.getElementById("pipa");
+   var gaivota =  document.getElementById("gaivota");
+
    $speedFront = imgFront.dataset.speed;
-   $topPixels = imgFront.dataset.top;
-   $leftPixels = imgFront.dataset.left;
+   $topPercent = imgFront.dataset.top;
+   $leftPercent = imgFront.dataset.left;
+
+   $speedPipa = pipa.dataset.speed;
+   $topPercentPipa = pipa.dataset.top;
+   $lefPercentPipa = pipa.dataset.left;
+
+   $speedGaivota = gaivota.dataset.speed;
+   $topPercentGaivota = gaivota.dataset.top;
+   $lefPercentGaivota = gaivota.dataset.left;
 
    $document.mousemove(function(event){
 
-        $leftBack = -(event.pageX / $speedBack);
-        $topBack = -(event.pageY / $speedBack);
-        $leftFront = $leftPixels -(event.pageX / $speedFront);
-        $topFront = $topPixels -(event.pageY / $speedFront);
+        $leftFront = $leftPercent -( ( (event.pageX / $contextWidth) * 100 ) / $speedFront);
+        $topFront = $topPercent -( ( (event.pageY / $contextHeight) * 100 ) / $speedFront);
 
-        imgFront.style.left = $leftFront+"px";
-        imgFront.style.top = $topFront+"px";
+        $leftPipa = $lefPercentPipa -( ( (event.pageX / $contextWidth) * 100 ) / $speedPipa);
+        $topPipa = $topPercentPipa -( ( (event.pageY / $contextHeight) * 100 ) / $speedPipa);
+
+        $leftGaivota = $lefPercentGaivota -( ( (event.pageX / $contextWidth) * 100 ) / $speedGaivota);
+        $topGaivota = $topPercentGaivota -( ( (event.pageY / $contextHeight) * 100 ) / $speedGaivota);
+
+        imgFront.style.left = $leftFront+"%";
+        imgFront.style.top = $topFront+"%";
+
+        pipa.style.left = $leftPipa+"%";
+        pipa.style.top = $topPipa+"%";
+
+        gaivota.style.left = $leftGaivota+"%";
+        gaivota.style.top = $topGaivota+"%";
 
    });
 

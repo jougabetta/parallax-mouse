@@ -10,14 +10,19 @@
 <style>
 *{margin:0; padding:0;}
 img#back{min-width:100%;}
-img#front{position:absolute; top:225px; left:495px;}
+img#front{position:absolute; top:40%; left:30%;}
+.imgs{position:absolute; z-index:500;}
+#pipa{top:20%; left:70%;}
+#gaivota{top:15%; left:20%;}
 </style>
 
 <body>
 
 <div>
     <img id="back" data-speed="5" src="Desert.jpg" />
-    <img id="front" data-speed="10" data-top="225" data-left="495" src="asa.gif" />
+    <img id="front" data-speed="3" data-top="40" data-left="30" src="asa.gif" />
+    <img id="pipa" class="imgs" data-speed="40" data-top="20" data-left="70" width="50" src="pipa.png" />
+    <img id="gaivota" class="imgs" data-speed="100" data-top="15" data-left="20" width="50" src="gaivota.png" />
 </div>
 
 
